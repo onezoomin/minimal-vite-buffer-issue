@@ -1,3 +1,5 @@
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#prebuild/https://github.com/onezoomin/minimal-vite-buffer-issue)
+
 # A simple Todo App using Preact + Vite + Typescript + WindiCSS 
 
 > This project was forked from https://github.com/greatvivek11/TodoApp
