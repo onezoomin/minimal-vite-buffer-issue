@@ -1,4 +1,5 @@
 import preactRefresh from '@prefresh/vite'
+import nodePolyfills from 'rollup-plugin-polyfill-node'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import WindiCSS from 'vite-plugin-windicss'
@@ -15,5 +16,10 @@ export default defineConfig({
       { find: 'react-dom', replacement: 'preact/compat' },
     ],
   },
-  plugins: [preactRefresh(), VitePWA(), WindiCSS({ safelist: 'prose prose-sm m-auto' })],
+  plugins: [
+    nodePolyfills(),
+    preactRefresh(),
+    VitePWA(),
+    WindiCSS({ safelist: 'prose prose-sm m-auto' }),
+  ],
 })

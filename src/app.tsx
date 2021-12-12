@@ -1,9 +1,11 @@
+import { getKeplrFromWindow } from '@keplr-wallet/stores'
 import WarningIcon from '@mui/icons-material/Warning'
 import { IconButton, Link, Tooltip } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { Image } from 'mui-image'
 import { h } from 'preact'
+import { useEffect } from 'preact/hooks'
 import Footer from './Components/Footer'
 import { FlexRow } from './Components/Minis'
 // import InitializingServiceWorker from './Components/ServiceWorker'
@@ -12,6 +14,7 @@ import AddTasks from './Components/Tasks/AddTasks'
 import CompletedTask from './Components/Tasks/CompletedTask'
 import { ActiveTasksQuery, CompletedTasksQuery } from './Data/data'
 import { useDarkMode } from './Utils/react-utils'
+
 // eslint-disable-next-line @typescript-eslint/promise-function-async
 // const App = lazy(() => import('./app'))
 // <Suspense fallback={<div>Loading...</div>}></Suspense>
@@ -22,9 +25,13 @@ export const App = () => {
   const CompletedTasks = useLiveQuery(CompletedTasksQuery) ?? []
 
   const theme = useDarkMode()
-  // useEffect(() => {
-  //   localStorage.setItem('ActiveTasks', JSON.stringify(ActiveTasks))
-  // }, [ActiveTasks])
+  useEffect(() => {
+    const as = async () => {
+      const k = await getKeplrFromWindow()
+      console.log(k)
+    }
+    void as()
+  }, [])
 
   // useEffect(() => {
   //   localStorage.setItem('CompletedTasks', JSON.stringify(CompletedTasks))
